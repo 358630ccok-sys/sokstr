@@ -21,4 +21,8 @@ Proxmox, Docker, ROCm, Python, Ollama, ComfyUI, Dify, n8n, aiogram, Obsidian, Li
 - Dify: VM 112 (192.168.10.112:3002), RAG по Obsidian Vault
 - ComfyUI: Docker (ROCm), Wan2.2 TI2V-5B, SDXL Inpaint
 - Ollama: CT 103 (AMD) + локально (GTX 1660)
+
+## 📊 Мониторинг системы
+
+Скрипт `sys_monitor.py` собирает CPU, RAM и свободное место на диске и шлёт в Telegram-бота. Запуск через Docker: docker build -t sys_monitor . && docker run -e TELEGRAM_BOT_TOKEN=xxx -e TELEGRAM_CHAT_ID=yyy sys_monitor.
 EOF
