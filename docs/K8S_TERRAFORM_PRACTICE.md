@@ -16,6 +16,17 @@
 | **Terraform** | v1.9.8 | `/usr/local/bin/terraform` | IaC (Infrastructure as Code) |
 | **Git** | v2.39.5 | `/usr/bin/git` | Контроль версий |
 
+## ✅ Результаты практики (выполнено 2026-11-17)
+
+| # | Упражнение | Статус | Результат |
+|---|---|---|---|
+| 1 | Базовые команды kubectl | ✅ Выполнено | nginx-demo (2 реплики) развёрнут и работает |
+| 2 | Deployment + Service + Ingress | ✅ Выполнено | webapp (3 реплики) + ClusterIP Service + Traefik Ingress |
+| 3 | Создание Helm Chart с нуля | ✅ Выполнено | my-webapp chart создан и задеплоен (helm install) |
+| 4 | Terraform (локальный провайдер) | ✅ Выполнено | local_file resource создан, apply успешен |
+| 5 | Terraform + Kubernetes провайдер | ✅ Выполнено | namespace + deployment (2 реплики) + service через Terraform |
+| 6 | Terraform + Yandex Cloud | ✅ Шаблон валидирован | provider установлен, config валиден (нужен YC аккаунт для apply) |
+
 ## 🔧 Как подключиться к кластеру
 
 ```bash
