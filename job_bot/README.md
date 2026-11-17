@@ -1,0 +1,59 @@
+# Job Hunter Bot (`job_bot/`)
+
+Telegram-бот/скрипт для автоматического поиска вакансий (**hh.ru API + LinkedIn guest/RSS fallback**) и отправки отчёта в Telegram.
+
+## Возможности
+- Поиск вакансий по ключевым запросам (DevOps/MLOps и др.)
+- Форматирование результатов (название, зарплата, ссылка)
+- Отправка отчёта в Telegram
+- Запуск по расписанию (cron/systemd timer/контейнер) или вручную
+- Конфигурация через переменные окружения (`.env`, без секретов в git)
+
+## Структура
+- `job_hunter.py` — основная логика сбора, обработки и отправки
+- `requirements.txt` — зависимости Python
+- `.env.example` — шаблон переменных окружения
+- `Dockerfile` — контейнеризация
+
+## Быстрый старт (локально)
+```bash
+cd job_bot
+cp .env.example .env
+# заполнить TG_TOKEN/TG_BOT_TOKEN, TELEGRAM_CHAT_ID (и при необходимости HH_TOKEN)
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python job_hunter.py
+```
+
+## Запуск в Docker
+```bash
+cd job_bot
+docker build -t job-bot .
+docker run --rm --env-file .env job-bot
+```
+
+## Пример формата отчёта (демо)
+```text
+🔎 Найдено вакансий: 5
+
+1) DevOps Engineer — 180 000–250 000 RUB gross
+   https://hh.ru/vacancy/...
+
+2) MLOps Engineer — Не указана
+   https://hh.ru/vacancy/...
+
+...
+```
+
+## Проверка корректности (как валидируется результат)
+- Сверка части результатов с источником (hh.ru/LinkedIn)
+- Контроль ошибок запросов/парсинга в логах
+- Проверка формата сообщения и доставки в Telegram
+- Повторный прогон при изменениях (регресс-проверка)
+
+## Безопасность
+- Не коммитить `.env` и токены
+- Передавать секреты только через переменные окружения/секрет-хранилище
+- Ограничивать права бота/чата и доступ к runtime-окружению
