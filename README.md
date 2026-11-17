@@ -111,14 +111,16 @@ docker run --rm --env-file .env job-bot
 
 ## 📸 Скриншоты и артефакты
 
-| Область | Пример | Что показывает |
+| Область | Пример | Что показывает / результат |
 |---|---|---|
-| **Мониторинг** | ![Grafana](docs/screenshots/grafana/ai-monitoring.png) | Prometheus + Grafana, контроль состояния сервисов/AI |
-| **Инфраструктура** | ![Proxmox](docs/screenshots/proxmox/cluster-overview.png) | Proxmox VE, LXC/VM, структура платформы |
-| **Автоматизация** | ![n8n](docs/screenshots/n8n/workflow-healthcheck.png) | n8n workflows, healthchecks, интеграции |
-| **AI/MLOps** | ![ComfyUI](docs/screenshots/ai/comfyui-pipeline.png) | AI-пайплайны и инфраструктура вокруг генерации |
+| **Мониторинг** | ![Grafana](docs/screenshots/grafana/ai-monitoring.png) | Дашборд Grafana + метрики Prometheus: контроль состояния сервисов и AI-инфраструктуры, быстрая диагностика |
+| **Инфраструктура** | ![Proxmox](docs/screenshots/proxmox/cluster-overview.png) | Proxmox VE: управление LXC/VM и ресурсами платформы (18+ сервисов) в едином контуре |
+| **Автоматизация** | ![n8n](docs/screenshots/n8n/workflow-healthcheck.png) | n8n workflow/healthchecks: автоматизация проверок и интеграций, меньше ручных операций |
+| **AI/MLOps** | ![ComfyUI](docs/screenshots/ai/comfyui-pipeline.png) | ComfyUI-пайплайн: практическая AI-инфраструктура для генерации/обработки контента |
 
-Дополнительно: `docs/screenshots/` (terminal, telegram, ci-cd и др.)
+Дополнительно: `docs/screenshots/terminal/` (артефакты команд/состояния), другие каталоги — заготовки для новых скриншотов (`telegram`, `ci-cd`).
+
+> Пути к изображениям проверены (`docs/screenshots/{grafana,proxmox,n8n,ai}/*.png`) — в README GitHub они должны отображаться корректно.
 
 ---
 
