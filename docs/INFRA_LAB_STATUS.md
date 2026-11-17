@@ -75,7 +75,8 @@
 - `playbooks/03-install-packages.yml` — идемпотентная установка пакетов (curl/wget/git/htop/jq) ⚠️ зависит от доступности apt-репозиториев/прокси
 - `playbooks/04-deploy-k8s-app.yml` — деплой приложения в k3s через Ansible ✅ (idempotent)
 - `playbooks/05-verify-k8s.yml` — проверка нод/подов кластера ✅
-- `roles/`, `templates/` — заготовки для расширения
+- `roles/nginx/tasks/main.yml` + `roles/nginx/templates/*.j2` — рабочая роль (деплой nginx в k3s)
+- `group_vars/all.yml`, `files/` — переменные и файлы для роли
 
 **Результат практики:** Ansible успешно управляет локальным хостом и деплоит манифесты в k3s (`ansible-practice` namespace).
 
