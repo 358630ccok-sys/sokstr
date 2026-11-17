@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Алексей (sokstr) — Junior/Middle DevOps & MLOps</title>
+  <meta name="description" content="Портфолио: переход из техподдержки (Lenta) в DevOps/MLOps. HomeLab: Proxmox, Docker, Ollama, RAG, n8n, мониторинг." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="badge">Remote-friendly · РФ</p>
+        <h1>Алексей (sokstr)</h1>
+        <p class="subtitle">Junior / Middle DevOps · MLOps Engineer (фокус: AI Infrastructure & автоматизация)</p>
+        <p class="lead">Инженер техподдержки с опытом эксплуатации и инцидент-менеджмента (Lenta, с 2023) и практическими пет-проектами в домашней MLOps/DevOps-лаборатории: Proxmox, Docker, Ollama, RAG, n8n, мониторинг.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/sokstr/sokstr-mlops" target="_blank" rel="noopener">GitHub: sokstr-mlops</a>
+          <a class="btn" href="https://github.com/358630ccok-sys/sokstr" target="_blank" rel="noopener">GitHub: sokstr</a>
+          <a class="btn ghost" href="#contacts">Контакты</a>
+        </div>
+      </div>
+      <div class="card highlight">
+        <h3>Цель</h3>
+        <ul>
+          <li>Позиция: <strong>Junior/Middle DevOps</strong> или <strong>MLOps Engineer</strong>, открыт к оплачиваемым стажировкам</li>
+          <li>Формат: удалёнка (приоритет) / гибрид</li>
+          <li>Ориентир: от 80 000 ₽ (junior/стажировка)</li>
+          <li>Фокус роста: Linux, Docker, CI/CD, автоматизация, эксплуатация сервисов</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="skills">
+      <div class="container">
+        <h2>Ключевые навыки</h2>
+        <div class="grid cards-3">
+          <div class="card"><h3>Linux & эксплуатация</h3><p>Диагностика, анализ логов, Bash, основы сетей, инцидент-менеджмент, восстановление сервисов в SLA, документирование.</p></div>
+          <div class="card"><h3>Контейнеры & инфраструктура</h3><p>Docker, Docker Compose, Proxmox VE (LXC/VM), базово nginx, развёртывание и сопровождение сервисов.</p></div>
+          <div class="card"><h3>Автоматизация & CI/CD</h3><p>Git, базовое понимание CI/CD, n8n, Python/Bash-скриптинг, автоматизация рутинных процессов.</p></div>
+          <div class="card"><h3>MLOps / AI-инфраструктура</h3><p>Локальный inference LLM через Ollama, RAG (Dify/эмбеддинги/база знаний), работа с GPU (ROCm/NVIDIA, базово).</p></div>
+          <div class="card"><h3>Наблюдаемость</h3><p>Prometheus/Grafana (базово), мониторинг, постмортем-подход и снижение повторяемости инцидентов.</p></div>
+          <div class="card"><h3>Интеграции</h3><p>Python, SQL (базово), Telegram-боты и сервисные интеграции, автоматизация рабочих сценариев.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="homelab">
+      <div class="container">
+        <h2>HomeLab: Proxmox / Docker / RAG / Ollama</h2>
+        <p class="section-lead">Домашняя MLOps/DevOps-лаборатория (2025 — н.в.) — спроектирована и эксплуатируется как площадка для практики инфраструктуры, автоматизации и локального ИИ.</p>
+        <div class="grid cards-2">
+          <div class="card">
+            <h3>Инфраструктура</h3>
+            <ul>
+              <li><strong>Proxmox VE:</strong> кластер LXC/VM, развёртывание и сопровождение сервисов</li>
+              <li><strong>Docker / Compose:</strong> контейнеризация сервисов и изоляция окружений</li>
+              <li><strong>GPU:</strong> AMD ROCm + NVIDIA (базовая эксплуатация под inference/медиа)</li>
+              <li><strong>Мониторинг:</strong> Prometheus/Grafana (базово), диагностика и документирование изменений</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>AI & автоматизация</h3>
+            <ul>
+              <li><strong>Ollama:</strong> локальный inference LLM (в т.ч. coder-модели, эмбеддинги)</li>
+              <li><strong>RAG:</strong> Dify + эмбеддинги + база знаний (Obsidian), поиск контекста без раздувания промпта</li>
+              <li><strong>n8n:</strong> автоматизация процессов и интеграций</li>
+              <li><strong>Telegram-боты:</strong> сценарии взаимодействия с сервисами/знаниями</li>
+              <li><strong>ComfyUI:</strong> медиа-пайплайны (изображения/видео, эксперименты)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="diagram card">
+          <h3>Схема (упрощённо)</h3>
+<pre><code>Cloud planner
+   -> Local executor (LLM/Ollama)
+      -> n8n (автоматизация)
+         -> Dify / RAG (Knowledge Base)
+            -> Telegram-боты / сервисы
+
+Инфраструктура: Proxmox VE (LXC/VM) + Docker + мониторинг (Prometheus/Grafana)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <h2>Проекты</h2>
+        <div class="grid cards-3">
+          <article class="card project">
+            <h3>sokstr-mlops</h3>
+            <p>Репозиторий-портфолио: MLOps/AI-инфраструктура, заметки по архитектуре, резюме и связанные компоненты (в т.ч. career/job tooling).</p>
+            <a href="https://github.com/sokstr/sokstr-mlops" target="_blank" rel="noopener">Открыть репозиторий →</a>
+          </article>
+          <article class="card project">
+            <h3>Career Agent</h3>
+            <p>Автоматизация поиска и оценки вакансий (hh.ru/LinkedIn), скоринг и подготовка сопроводительных писем с доставкой в Telegram (n8n + LLM).</p>
+            <span class="tag">автоматизация</span> <span class="tag">LLM</span> <span class="tag">n8n</span>
+          </article>
+          <article class="card project">
+            <h3>RAG & память</h3>
+            <p>Локальный RAG (SQLite + embeddings через Ollama) и лёгкое долговременное хранение фактов/саммари для контекстной работы ассистента.</p>
+            <span class="tag">RAG</span> <span class="tag">SQLite</span> <span class="tag">Ollama</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="experience">
+      <div class="container">
+        <h2>Опыт</h2>
+        <div class="timeline">
+          <div class="item card">
+            <div class="when">2023 — н.в.</div>
+            <h3>Инженер технической поддержки / Специалист по IT — Лента</h3>
+            <ul>
+              <li>Диагностика инцидентов и сбоев (логи, первопричины ПО/оборудования), восстановление работоспособности в SLA</li>
+              <li>Эскалация сложных проблем с подробным описанием симптомов и шагов воспроизведения</li>
+              <li>Участие в ручных обновлениях/развёртываниях и настройке терминалов/ПО — понимание процессов деплоя и CI/CD</li>
+              <li>Монтаж/конфигурация оборудования, устранение неисправностей, документирование и база знаний</li>
+            </ul>
+          </div>
+          <div class="item card">
+            <div class="when">2022 — 2023</div>
+            <h3>Инженер выездной технической поддержки — Связной</h3>
+            <p>Диагностика и устранение инцидентов на стороне клиента, настройка ПО/оборудования, приоритизация заявок.</p>
+          </div>
+          <div class="item card">
+            <div class="when">2021 — 2023</div>
+            <h3>Системный администратор</h3>
+            <p>Поддержка рабочих станций/серверов/сети, устранение неисправностей, стабильность окружений.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="container">
+        <h2>Контакты</h2>
+        <div class="card">
+          <ul class="contacts">
+            <li><strong>GitHub:</strong> <a href="https://github.com/sokstr/sokstr-mlops" target="_blank" rel="noopener">github.com/sokstr/sokstr-mlops</a></li>
+            <li><strong>GitHub (alt):</strong> <a href="https://github.com/358630ccok-sys/sokstr" target="_blank" rel="noopener">github.com/358630ccok-sys/sokstr</a></li>
+            <li><strong>Формат:</strong> удалёнка (приоритет) / гибрид, РФ (remote-friendly)</li>
+            <li><strong>Фокус:</strong> Junior/Middle DevOps, MLOps, стажировки с обучением</li>
+          </ul>
+          <p class="muted">Телефон/Email — по запросу. Портфолио подготовлено как статический сайт для GitHub Pages (папка <code>docs/</code>).</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="y"></span> Алексей (sokstr) · DevOps / MLOps · HomeLab: Proxmox, Docker, Ollama, RAG</p>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
