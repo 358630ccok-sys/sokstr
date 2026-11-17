@@ -143,12 +143,28 @@ docker run --rm --env-file .env job-bot
 
 ---
 
-## 📸 Портфолио: что показать (артефакты)
+## 📸 Портфолио: скриншоты (живые артефакты)
 
+### 📊 Мониторинг (Grafana)
+![Grafana Dashboard](docs/screenshots/grafana/ai-monitoring.png)
+*Наблюдаемость: Prometheus + Grafana, контроль состояния 18+ сервисов*
+
+### 🏗️ Инфраструктура (Proxmox VE)
+![Proxmox Cluster](docs/screenshots/proxmox/cluster-overview.png)
+*Production home-lab: Proxmox VE, LXC/VM, Docker — 18+ сервисов*
+
+### ⚙️ Автоматизация (n8n)
+![n8n Workflows](docs/screenshots/n8n/workflow-healthcheck.png)
+*Автоматизация процессов: n8n workflow, healthchecks, интеграции*
+
+### 🎨 AI/MLOps (ComfyUI)
+![ComfyUI Pipeline](docs/screenshots/ai/comfyui-pipeline.png)
+*MLOps: ComfyUI, SDXL, IPAdapter FaceID — генерация контента*
+
+### 📸 Дополнительные артефакты (планируются)
 | Артефакт | Что демонстрирует | Где хранить |
 |---|---|---|
-| Скриншот Grafana (`ai-monitoring-2026`) | Мониторинг, метрики, наблюдаемость | `docs/screenshots/grafana/` |
-| Скриншоты n8n workflows | Автоматизация, интеграции, healthchecks | `docs/screenshots/n8n/` |
+| Скриншоты n8n workflows (детально) | Автоматизация, интеграции, healthchecks | `docs/screenshots/n8n/` |
 | Скриншоты ComfyUI / AI пайплайнов | Практика AI/MLOps инфраструктуры | `docs/screenshots/ai/` |
 | Схема архитектуры (network/services) | Понимание инфраструктуры и зависимостей | `docs/architecture/` |
 | Примеры логов/инцидент-заметок (обезличенно) | Диагностика, эксплуатация, runbooks | `docs/runbooks/` |
