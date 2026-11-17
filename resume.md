@@ -1,6 +1,6 @@
 # 👨‍💻 Алексей (sokstr) — Middle DevOps / MLOps Engineer
 
-- **GitHub:** https://github.com/sokstr/sokstr-mlops
+- **GitHub:** https://github.com/358630ccok-sys/sokstr
 - **Локация:** РФ (remote-friendly)
 - **Контакты:** телефон / email — по запросу
 
@@ -64,7 +64,7 @@ DevOps / MLOps-инженер с опытом **эксплуатации и ин
 - Консультирование по техническим вопросам, настройка веб-сервисов, помощь в устранении проблем.
 
 ## 🏗️ Production-инфраструктура / Домашняя DevOps & AI-платформа
-**2025 — н.в.** · *self-operated production home-lab* · https://github.com/sokstr/sokstr-mlops
+**2025 — н.в.** · *self-operated production home-lab* · https://github.com/358630ccok-sys/sokstr
 
 - **Proxmox VE кластер (18+ сервисов, LXC/VM, Docker):** развёртывание, конфигурация, эксплуатация и контроль ресурсов.
 - **AI/MLOps:** Ollama (LLM inference, GPU/ROCm), RAG (SQLite + nomic-embed-text, 309 чанков Obsidian), Dify/Qdrant, ComfyUI (SDXL + IPAdapter FaceID).

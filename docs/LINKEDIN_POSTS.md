@@ -100,7 +100,7 @@ Job Hunter Bot:
 • Автоматизация бизнес-процессов
 • Работа с данными и форматирование
 
-Код и README: https://github.com/sokstr/sokstr-mlops
+Код и README: https://github.com/358630ccok-sys/sokstr
 
 Как вы автоматизируете рутинные задачи? 👇
 

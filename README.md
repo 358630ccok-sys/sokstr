@@ -1,188 +1,150 @@
-# 🚀 sokstr-mlops — DevOps / MLOps Portfolio
+# 🚀 DevOps / MLOps Portfolio — Алексей (sokstr)
 
-**Production home-lab & AI infrastructure**: Proxmox VE · Docker/LXC · Prometheus/Grafana · n8n · GitLab CI · Ollama · RAG · Telegram automation
+**Middle DevOps / MLOps Engineer** · Production Home-Lab (18+ сервисов) · Linux · Docker · Proxmox · Kubernetes (k3s) · Helm · Terraform · Ansible · Prometheus/Grafana · AI Infra (Ollama/RAG)
 
-> Репозиторий-портфолио Middle DevOps / MLOps-инженера (Алексей, `sokstr`): эксплуатация инфраструктуры, автоматизация, мониторинг и локальный AI-стек.
-
----
-
-## 📌 Обзор
-Этот проект объединяет **инфраструктурную платформу** и **практические DevOps/MLOps артефакты**:
-- 🏗️ Эксплуатация кластера **Proxmox VE** (18+ сервисов, LXC/VM, Docker)
-- 📊 Наблюдаемость: **Prometheus + Grafana** (дашборды, healthchecks)
-- ⚙️ Автоматизация: **n8n**, Bash/Python скрипты, Telegram-интеграции
-- 🧠 AI/MLOps: **Ollama** (GPU inference), **RAG** (SQLite + embeddings), **Dify/Qdrant**, **ComfyUI**
-- 🤖 Боты: **Job Hunter** (hh.ru/LinkedIn), VPN bot, уведомления
+> Практический репозиторий-портфолио: эксплуатация инфраструктуры, автоматизация, мониторинг, CI/CD и локальный AI/MLOps-стек.  
+> **GitHub:** https://github.com/358630ccok-sys/sokstr · **Резюме:** [resume.md](resume.md) · **Портфолио для интервью:** [docs/PORTFOLIO_INTERVIEW.md](docs/PORTFOLIO_INTERVIEW.md)
 
 ---
 
-## 🏗️ Архитектура (high-level)
+## ⚡ Для рекрутера (за 30 секунд)
+
+- **Роль:** Middle DevOps / MLOps Engineer (remote/hybrid), опыт эксплуатации в enterprise (Lenta) + собственная production-платформа.
+- **Инфраструктура:** Proxmox VE, **18+ сервисов** (LXC/VM/Docker), Nginx, VPN, бэкапы, документация.
+- **Kubernetes/IaC (hands-on lab):** развернул **k3s** на Proxmox (CT200), работал с **kubectl, Helm, Terraform, Ansible** (деплой приложений, Helm chart/CronJob, IaC, roles/templates). → [docs/INFRA_LAB_STATUS.md](docs/INFRA_LAB_STATUS.md), [docs/K8S_TERRAFORM_PRACTICE.md](docs/K8S_TERRAFORM_PRACTICE.md)
+- **Наблюдаемость:** Prometheus + Grafana (дашборды, в т.ч. AI-мониторинг), healthchecks, анализ логов.
+- **Автоматизация:** n8n, Bash/Python, Telegram-боты, GitLab CI/CD.
+- **AI/MLOps:** Ollama (GPU inference), RAG (SQLite + embeddings), Dify, Qdrant, ComfyUI.
+- **Что внутри репо:** код бота (`job_bot/`), резюме, архитектура, runbook/доки, скриншоты, материалы для откликов.
+
+---
+
+## 🏗️ Архитектура платформы (high-level)
 
 ```text
                          ┌───────────────────────────────┐
-                         │   Cloud Planner (OpenCode)    │
-                         │  планирование / анализ / отчёты│
+                         │      Planning / AI Agents     │
+                         │  постановка задач, анализ, docs│
                          └───────────────┬───────────────┘
-                                         │ задачи
+                                         │
                                          ▼
                     ┌────────────────────────────────────────┐
-                    │        Local Executors (on host)       │
-                    │   local-reader  ·  local-coder  · bash │
+                    │        Automation & Operations         │
+                    │   n8n · scripts · bots · CI/CD         │
                     └───────────────────┬────────────────────┘
-                                        │ SSH / API / Docker
+                                        │ SSH / API / Docker / K8s
                                         ▼
-┌──────────────────────────────── Proxmox VE Cluster ─────────────────────────────────┐
-│  LXC / VM / Docker services (18+)                                                  │
-│                                                                                    │
-│  CT103  Ollama        192.168.10.103      LLM inference (GPU/ROCm)                 │
-│  CT105  Prometheus    192.168.10.105:9090 Metrics collection                       │
-│  CT106  Grafana       192.168.10.106:3000 Dashboards (ai-monitoring-2026)         │
-│  CT134  n8n           192.168.10.134:5678 Workflow automation / healthchecks        │
-│  VM112  Dify          192.168.10.112      AI apps / RAG platform                    │
-│  Docker ComfyUI       192.168.10.100:8188 Image generation (SDXL/IPAdapter)         │
-│  + GitLab/Runner, Nginx, Vaultwarden, Qdrant, LiteLLM, Nextcloud, VPN, etc.       │
-└───────────────┬───────────────────────────────┬───────────────────────────┬────────┘
-                │                               │                           │
+┌──────────────────────────────── Proxmox VE (18+ services) ──────────────────────────┐
+│  LXC / VM / Docker                                                                  │
+│  • Ollama (LLM/GPU)      • Prometheus/Grafana (monitoring)   • n8n (automation)    │
+│  • Dify / Qdrant (RAG)   • GitLab/Runner (CI/CD)             • ComfyUI (AI media)  │
+│  • Nginx, VPN, Vaultwarden, Nextcloud, LiteLLM и др.                                │
+│                                                                                     │
+│  DevOps Lab (CT200, 192.168.10.240): k3s · kubectl · Helm · Terraform · Ansible    │
+└───────────────┬───────────────────────────────┬───────────────────────────┬─────────┘
                 ▼                               ▼                           ▼
-         Telegram Bots/API                 RAG / Knowledge            CI/CD & Ops
-      (job_bot, уведомления)        (SQLite + embeddings, Dify)    (GitLab, scripts, logs)
+         Telegram-интеграции              RAG / Knowledge Base           CI/CD & Runbooks
+          (job_bot, alerts)           (Obsidian, embeddings, Dify)      (GitLab, docs, ops)
 ```
 
----
-
-## 🧰 Стек и сервисы
-
-| Категория | Технологии / сервисы | Назначение |
-|---|---|---|
-| **Виртуализация / хостинг** | Proxmox VE, LXC, VM, Docker | Запуск и изоляция сервисов, управление ресурсами |
-| **OS / администрирование** | Linux, Bash, systemd, SSH | Эксплуатация, диагностика, обслуживание |
-| **Мониторинг** | Prometheus, Grafana | Метрики, дашборды, контроль состояния (в т.ч. AI) |
-| **Автоматизация** | n8n, Python, Bash, cron/расписания | Оркестрация процессов, интеграции, healthchecks |
-| **CI/CD / SCM** | Git, GitLab, GitLab Runner | Контроль версий, пайплайны сборки/деплоя |
-| **AI / MLOps** | Ollama, ROCm/GPU, Dify, Qdrant, ComfyUI | Локальный inference, AI-приложения, генерация контента |
-| **RAG / данные** | SQLite, nomic-embed-text (Ollama), Obsidian knowledge base | Индексация и поиск по знаниям (309 чанков) |
-| **Сеть / доступ** | Nginx, VPN (AmneziaWG/WireGuard), Telegram Bot API | Reverse proxy, удалённый доступ, уведомления/боты |
-| **Утилиты / сервисы** | Vaultwarden, Nextcloud, LiteLLM, Code Server и др. | Инфраструктурные и пользовательские сервисы |
+Подробнее: [architecture.md](architecture.md)
 
 ---
 
-## 🤖 Автоматизация и боты
+## 🧰 Ключевой стек
 
-### Job Hunter Bot (`job_bot/`)
-- **Назначение:** автоматический поиск вакансий и отправка отчёта в Telegram
-- **Источники:** hh.ru API, LinkedIn (парсинг guest endpoint / RSS fallback)
-- **Стек:** Python, `aiogram`, `requests`, `BeautifulSoup`, `feedparser`, `python-dotenv`
-- **Деплой:** Docker (`job_bot/Dockerfile`), конфигурация через `.env` (без секретов в git)
-- **Режим:** запуск по расписанию (ежедневная автоматизация) + ручной запуск
-
-**Ключевые файлы:**
-- `job_bot/job_hunter.py` — логика сбора, форматирования и отправки вакансий
-- `job_bot/Dockerfile` — контейнеризация
-- `job_bot/requirements.txt` — зависимости
-- `job_bot/.env.example` — шаблон переменных окружения
-
-### Другие интеграции
-- **VPN bot** — управление VPN-сценариями (AmneziaWG/WireGuard)
-- **Obsidian bot** — сервисные сценарии вокруг заметок/доступа
-- **Telegram notifications** — отправка отчётов и уведомлений о состоянии/задачах
+| Область | Технологии |
+|---|---|
+| **Linux / Ops** | Linux, Bash, systemd, journalctl, SSH, диагностика инцидентов, эксплуатация в SLA |
+| **Виртуализация / Контейнеры** | Proxmox VE, LXC/VM, Docker, Docker Compose |
+| **Kubernetes / IaC** | k3s, kubectl, Helm, Terraform, Ansible (hands-on lab на Proxmox) |
+| **CI/CD** | Git, GitLab, GitLab Runner |
+| **Мониторинг** | Prometheus, Grafana, healthchecks, анализ логов |
+| **Автоматизация** | Python, Bash, n8n, Telegram Bot API |
+| **AI / MLOps** | Ollama (ROCm/GPU), RAG (SQLite + nomic-embed-text), Dify, Qdrant, ComfyUI |
+| **Сеть / Доступ** | Nginx (reverse proxy), VPN (WireGuard/AmneziaWG), основы DNS/маршрутизации |
+| **Практики** | `.env`/секреты вне git, бэкапы, логирование, документирование, воспроизводимость |
 
 ---
 
-## 🧠 AI/MLOps контур
-- **LLM Inference:** Ollama (в т.ч. `qwen2.5-coder:3b`, GPU/ROCm), эксплуатация и контроль ресурсов
-- **RAG:** SQLite + `nomic-embed-text` (через Ollama), индекс заметок Obsidian (**309 чанков**), поиск релевантного контекста
-- **AI-платформы/инструменты:** Dify, Qdrant, ComfyUI (SDXL, IPAdapter FaceID пайплайны)
-- **Career Agent:** n8n + Ollama для поиска/оценки вакансий и подготовки материалов с доставкой в Telegram
-- **Подход:** локальный inference, автоматизация пайплайнов, наблюдаемость за AI-сервисами
+## 🧪 Что реализовано (практика)
 
----
+### 1) Production Home-Lab (эксплуатация)
+- Спроектировал и сопровождаю платформу **18+ сервисов** на Proxmox VE.
+- Настроил наблюдаемость (Prometheus/Grafana), автоматизацию (n8n/скрипты/боты) и поддержку AI-сервисов.
+- Веду эксплуатационные практики: диагностика, контроль состояния, бэкапы, документация.
 
-## 📊 Мониторинг и эксплуатация
-- **Prometheus** — сбор метрик инфраструктуры и сервисов
-- **Grafana** — визуализация, дашборды (включая `ai-monitoring-2026`)
-- **n8n healthchecks/workflows** — проверки доступности и автоматические сценарии реагирования/уведомлений
-- **Эксплуатационные практики:** анализ логов, диагностика инцидентов, бэкапы, документирование изменений и конфигураций
-- **Фокус:** прозрачность состояния, воспроизводимость, быстрое восстановление
+### 2) Kubernetes / Helm / Terraform / Ansible Lab
+- **CT200 `k8s-lab`**: k3s (Ready), kubectl, Helm v3, Terraform v1.9, Ansible.
+- Отработано: Deployment/Service/Ingress, Helm chart, Terraform (local + Kubernetes provider), Ansible role/Jinja, деплой CronJob в k3s.
+- Детали: [docs/INFRA_LAB_STATUS.md](docs/INFRA_LAB_STATUS.md) · [docs/K8S_TERRAFORM_PRACTICE.md](docs/K8S_TERRAFORM_PRACTICE.md)
 
----
+### 3) Job Hunter Bot (`job_bot/`)
+Автоматизация поиска вакансий и доставки отчётов в Telegram.
+- **Источники:** hh.ru API, LinkedIn (парсинг guest/RSS fallback)
+- **Стек:** Python, aiogram, requests, BeautifulSoup, feedparser, python-dotenv
+- **Запуск:** локально или в Docker, конфигурация через `.env` (секреты не хранятся в git)
 
-## 🚀 Деплой / запуск
-
-### Job Hunter Bot (локально или в Docker)
-
-1. Подготовить переменные окружения:
+**Быстрый старт:**
 ```bash
 cd job_bot
 cp .env.example .env
-# заполнить TG_TOKEN / HH_TOKEN (опционально) / TELEGRAM_CHAT_ID
-```
-
-2. Установить зависимости (локальный запуск):
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
+# заполнить переменные окружения
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python job_hunter.py
 ```
 
-3. Запуск в Docker:
+**Docker:**
 ```bash
 cd job_bot
 docker build -t job-bot .
 docker run --rm --env-file .env job-bot
 ```
 
-> ⚠️ Не коммитьте `.env`, токены и другие секреты. Используйте `.env.example` как шаблон.
-
-### Общие принципы деплоя сервисов в платформе
-- **Proxmox LXC/VM** — для системных сервисов и изолированных окружений
-- **Docker / Docker Compose** — для приложений и интеграций (боты, утилиты, AI-компоненты)
-- **Nginx reverse proxy** — маршрутизация и доступ к сервисам
-- **GitLab + Runner** — CI/CD автоматизация (сборка/проверки/деплой)
-- **Prometheus/Grafana** — контроль состояния после деплоя
+### 4) AI/MLOps контур
+- **LLM inference:** Ollama (GPU/ROCm), эксплуатация локальных моделей
+- **RAG:** индексирование базы знаний (SQLite + embeddings), поиск контекста для задач/документации
+- **Платформы:** Dify, Qdrant, ComfyUI (генеративные пайплайны)
 
 ---
 
-## 📸 Портфолио: скриншоты (живые артефакты)
+## 📸 Скриншоты и артефакты
 
-### 📊 Мониторинг (Grafana)
-![Grafana Dashboard](docs/screenshots/grafana/ai-monitoring.png)
-*Наблюдаемость: Prometheus + Grafana, контроль состояния 18+ сервисов*
-
-### 🏗️ Инфраструктура (Proxmox VE)
-![Proxmox Cluster](docs/screenshots/proxmox/cluster-overview.png)
-*Production home-lab: Proxmox VE, LXC/VM, Docker — 18+ сервисов*
-
-### ⚙️ Автоматизация (n8n)
-![n8n Workflows](docs/screenshots/n8n/workflow-healthcheck.png)
-*Автоматизация процессов: n8n workflow, healthchecks, интеграции*
-
-### 🎨 AI/MLOps (ComfyUI)
-![ComfyUI Pipeline](docs/screenshots/ai/comfyui-pipeline.png)
-*MLOps: ComfyUI, SDXL, IPAdapter FaceID — генерация контента*
-
-### 📸 Дополнительные артефакты (планируются)
-| Артефакт | Что демонстрирует | Где хранить |
+| Область | Пример | Что показывает |
 |---|---|---|
-| Скриншоты n8n workflows (детально) | Автоматизация, интеграции, healthchecks | `docs/screenshots/n8n/` |
-| Скриншоты ComfyUI / AI пайплайнов | Практика AI/MLOps инфраструктуры | `docs/screenshots/ai/` |
-| Схема архитектуры (network/services) | Понимание инфраструктуры и зависимостей | `docs/architecture/` |
-| Примеры логов/инцидент-заметок (обезличенно) | Диагностика, эксплуатация, runbooks | `docs/runbooks/` |
-| Фрагменты CI/CD конфигов и деплоя | Автоматизация поставки | `docs/ci-cd/` или репозитории сервисов |
+| **Мониторинг** | ![Grafana](docs/screenshots/grafana/ai-monitoring.png) | Prometheus + Grafana, контроль состояния сервисов/AI |
+| **Инфраструктура** | ![Proxmox](docs/screenshots/proxmox/cluster-overview.png) | Proxmox VE, LXC/VM, структура платформы |
+| **Автоматизация** | ![n8n](docs/screenshots/n8n/workflow-healthcheck.png) | n8n workflows, healthchecks, интеграции |
+| **AI/MLOps** | ![ComfyUI](docs/screenshots/ai/comfyui-pipeline.png) | AI-пайплайны и инфраструктура вокруг генерации |
 
-> Рекомендация: добавлять скриншоты без секретов/внутренних токенов, с краткими подписями «что видно и какую проблему решает».
-
----
-
-## 🎯 Фокус
-- **DevOps:** эксплуатация Linux-инфраструктуры, виртуализация, контейнеры, сеть, reverse proxy
-- **MLOps / AI Infra:** локальный inference, RAG, поддержка AI-сервисов и пайплайнов
-- **Автоматизация:** боты, workflow-оркестрация, CI/CD, снижение ручной рутины
-- **Надёжность:** мониторинг, диагностика, документирование, воспроизводимость
+Дополнительно: `docs/screenshots/` (terminal, telegram, ci-cd и др.)
 
 ---
 
-## 👤 Автор
-- **Алексей (sokstr)**
-- **GitHub:** https://github.com/sokstr/sokstr-mlops
-- **Роль:** Middle DevOps / MLOps Engineer (remote-friendly)
+## 📂 Навигация по репозиторию
+
+- [resume.md](resume.md) — актуальное резюме (Middle DevOps / MLOps)
+- [architecture.md](architecture.md) — описание архитектуры и компонентов
+- [docs/INFRA_LAB_STATUS.md](docs/INFRA_LAB_STATUS.md) — статус k3s/Helm/Terraform/Ansible lab
+- [docs/K8S_TERRAFORM_PRACTICE.md](docs/K8S_TERRAFORM_PRACTICE.md) — практические упражнения и заметки
+- [docs/PORTFOLIO_INTERVIEW.md](docs/PORTFOLIO_INTERVIEW.md) — как презентовать опыт на интервью
+- [docs/COVER_LETTER_TEMPLATE.md](docs/COVER_LETTER_TEMPLATE.md) — шаблоны сопроводительных писем
+- [docs/](docs/) — дополнительные материалы (LinkedIn, HH/отклики, планы, скриншоты)
+
+---
+
+## 🎯 Чем могу быть полезен команде
+- Эксплуатация и диагностика Linux/Docker/Proxmox-инфраструктуры
+- Настройка мониторинга, алертов и эксплуатационных процессов
+- Автоматизация рутин (скрипты, боты, n8n, интеграции)
+- Поддержка CI/CD и воспроизводимых окружений
+- Развёртывание и сопровождение AI/LLM-сервисов (Ollama, RAG-контур)
+- Развитие IaC/Kubernetes-практик (k3s, Helm, Terraform, Ansible — hands-on)
+
+---
+
+## 👤 Контакты
+- **GitHub:** https://github.com/358630ccok-sys/sokstr
+- **Резюме:** [resume.md](resume.md)
+- **Формат:** удалёнка / гибрид (РФ, remote-friendly)

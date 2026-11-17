@@ -1,6 +1,6 @@
 # 🎯 Портфолио и подготовка к интервью — Middle DevOps / MLOps Engineer
 
-> Алексей (sokstr) · РФ · remote-friendly · GitHub: https://github.com/sokstr/sokstr-mlops
+> Алексей (sokstr) · РФ · remote-friendly · GitHub: https://github.com/358630ccok-sys/sokstr
 
 ---
 

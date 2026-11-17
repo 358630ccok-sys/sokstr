@@ -13,7 +13,7 @@
 
 Ключевые навыки: Linux, Docker, Proxmox VE, Prometheus/Grafana, CI/CD (GitLab), n8n, Bash/Python, AI-инфраструктура (Ollama, RAG, Dify).
 
-Спроектировал и сопровождаю home-lab платформу из 18+ сервисов (мониторинг, автоматизация, AI-контур) — подробности и архитектура в GitHub: https://github.com/sokstr/sokstr-mlops
+Спроектировал и сопровождаю home-lab платформу из 18+ сервисов (мониторинг, автоматизация, AI-контур) — подробности и архитектура в GitHub: https://github.com/358630ccok-sys/sokstr
 
 Открыт к позиции [название должности] в вашей компании. Готов к удалённой работе.
 
@@ -50,7 +50,7 @@
 Позицию Middle DevOps / MLOps Engineer с фокусом на эксплуатацию, автоматизацию и развитие инфраструктуры. Удалённый формат (приоритет) или гибрид.
 
 ### Ссылки
-- **GitHub (портфолио):** https://github.com/sokstr/sokstr-mlops
+- **GitHub (портфолио):** https://github.com/358630ccok-sys/sokstr
 - **Резюме:** прикреплено
 
 Буду рад обсудить детали и ответить на вопросы.
@@ -77,7 +77,7 @@
 
 Опыт: Lenta (инженер техподдержки, production, SLA), собственная инфра-платформа.
 
-GitHub: https://github.com/sokstr/sokstr-mlops
+GitHub: https://github.com/358630ccok-sys/sokstr
 Резюме: по запросу
 
 Открыт к предложениям и обсуждению!

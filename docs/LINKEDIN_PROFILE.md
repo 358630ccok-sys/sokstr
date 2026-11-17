@@ -87,7 +87,7 @@ Open to Middle DevOps / MLOps Engineer roles (remote/hybrid). Focus: Linux, Dock
 • Kubernetes/IaC (hands-on): k3s, kubectl, Helm (charts, деплой приложений/CronJob), Terraform (local + Kubernetes provider), Ansible (playbooks, roles, Jinja2) — развёрнуто на Proxmox
 • Практики: управление конфигурациями/секретами через .env, логирование, бэкапы, документирование изменений
 
-Репозиторий: https://github.com/sokstr/sokstr-mlops
+Репозиторий: https://github.com/358630ccok-sys/sokstr
 ```
 
 **Навыки (добавить):** Proxmox, Docker, Kubernetes, k3s, Helm, Terraform, Ansible, Prometheus, Grafana, n8n, GitLab CI/CD, Ollama, RAG, Python, Bash, Nginx
@@ -165,7 +165,7 @@ Open to Middle DevOps / MLOps Engineer roles (remote/hybrid). Focus: Linux, Dock
 ## 📂 Projects (Раздел «Проекты»)
 
 ### 1. Production Home-Lab Platform (Proxmox)
-**Ссылка:** https://github.com/sokstr/sokstr-mlops  
+**Ссылка:** https://github.com/358630ccok-sys/sokstr  
 **Описание:**
 ```
 Проектирование и эксплуатация кластера Proxmox VE (18+ сервисов в LXC/VM/Docker): мониторинг (Prometheus/Grafana), автоматизация (n8n), CI/CD (GitLab), AI-инфраструктура (Ollama, RAG, Dify, ComfyUI).
@@ -173,7 +173,7 @@ Open to Middle DevOps / MLOps Engineer roles (remote/hybrid). Focus: Linux, Dock
 **Навыки:** Proxmox, Docker, Linux, Prometheus, Grafana, n8n, GitLab CI
 
 ### 2. Job Hunter Bot
-**Ссылка:** https://github.com/sokstr/sokstr-mlops/tree/main/job_bot  
+**Ссылка:** https://github.com/358630ccok-sys/sokstr/tree/main/job_bot  
 **Описание:**
 ```
 Автоматизация поиска вакансий: интеграция hh.ru API и LinkedIn (парсинг/RSS), формирование отчётов и доставка в Telegram. Контейнеризация (Docker), конфигурация через .env.
@@ -181,7 +181,7 @@ Open to Middle DevOps / MLOps Engineer roles (remote/hybrid). Focus: Linux, Dock
 **Навыки:** Python, Docker, API Integration, Telegram Bot API, Automation
 
 ### 3. AI/MLOps Infrastructure
-**Ссылка:** https://github.com/sokstr/sokstr-mlops  
+**Ссылка:** https://github.com/358630ccok-sys/sokstr  
 **Описание:**
 ```
 Развёртывание и поддержка AI-инфраструктуры: локальный LLM inference (Ollama, GPU/ROCm), RAG (SQLite + embeddings, 309 чанков), Dify/Qdrant, ComfyUI (SDXL + IPAdapter FaceID).
