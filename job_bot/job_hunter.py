@@ -67,7 +67,7 @@ def format_salary(salary: Any) -> str:
 
 def fetch_hh_vacancies(hh_token: str) -> List[Dict[str, str]]:
     url = "https://api.hh.ru/vacancies?text=MLOps+OR+DevOps&area=113&per_page=5"
-    headers = {"User-Agent": "job-hunter-bot/1.0"}
+    headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"}
     if hh_token:
         headers["Authorization"] = f"Bearer {hh_token}"
     try:
