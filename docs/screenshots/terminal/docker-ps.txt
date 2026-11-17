@@ -1,0 +1,3 @@
+NAMES          STATUS
+comfyui-rocm   Up 22 hours (healthy)
+ollama-admin   Up 22 hours

@@ -1,0 +1,5 @@
+NAME    ID    SIZE    PROCESSOR    CONTEXT    UNTIL 
+===
+NAMES          STATUS                  PORTS
+comfyui-rocm   Up 22 hours (healthy)   0.0.0.0:8188->8188/tcp
+ollama-admin   Up 22 hours             0.0.0.0:8081->3000/tcp
