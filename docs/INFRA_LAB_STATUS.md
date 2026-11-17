@@ -40,11 +40,12 @@
 | Namespace | Ресурсы | Назначение |
 |---|---|---|
 | `kube-system` | CoreDNS, Traefik, metrics-server, local-path-provisioner, svclb | Системные компоненты k3s |
-| `practice` | `nginx-demo` (2), `webapp` (3) + Service + Ingress, `my-webapp` (Helm) | Ручные манифесты + Helm |
+| `practice` | `nginx-demo` (2), `webapp` (3) + Service + Ingress, `my-webapp` (Helm), **`jobbot` CronJob** (Helm, образ jobbot-helm:0.1) | Ручные манифесты + Helm + практический деплой приложения |
 | `terraform-practice` | `nginx-tf` (2) + Service | Создано через Terraform Kubernetes provider |
 | `ansible-practice` | `ansible-nginx` (2) + Service | Создано через Ansible playbook |
 
 ### Выполненные упражнения K8s/Helm
+- ✅ **Job Hunter Bot как Helm Chart**: образ собран, импортирован в k3s (`ctr`), задеплоен как `CronJob` (`jobbot`, schedule `0 9 * * *`, secret `job-bot-env`), тестовый Job запущен
 - ✅ Базовые `kubectl` (get/describe/logs/exec/scale)
 - ✅ Deployment + Service (ClusterIP) + Ingress (Traefik, `webapp.local`)
 - ✅ Helm chart создан (`helm create my-webapp`) и задеплоен (`helm install`)
