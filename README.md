@@ -155,7 +155,9 @@ docker run --rm --env-file .env job-bot
 - [docs/runbooks/postgres-restore-verification-2026-11-17.md](docs/runbooks/postgres-restore-verification-2026-11-17.md) — фактический restore-тест в изолированном окружении (**PASS**)
 - [docs/runbooks/postgres-restore-verification-template.md](docs/runbooks/postgres-restore-verification-template.md) — шаблон фиксации результата restore-проверки (PASS/FAIL)
 - [docs/runbooks/incident-service-outage-home-lab.md](docs/runbooks/incident-service-outage-home-lab.md) — разбор инцидента: диагностика, root cause, профилактика
+- [docs/case-studies/job-hunter-bot.md](docs/case-studies/job-hunter-bot.md) — кейс: автоматизация поиска вакансий, деплой, проверка и сценарий использования в общем чате
 - [docs/screenshots/telegram/job_bot_demo.txt](docs/screenshots/telegram/job_bot_demo.txt) — пример вывода Job Hunter (`--demo`)
+- [docs/screenshots/telegram/job_bot_sample_report.md](docs/screenshots/telegram/job_bot_sample_report.md) — обезличенный пример формата отчёта
 - [docs/screenshots/telegram/README.md](docs/screenshots/telegram/README.md) — примечания по demo/артефактам Telegram-бота
 - [docs/](docs/) — дополнительные материалы (LinkedIn, HH/отклики, планы, скриншоты)
 
