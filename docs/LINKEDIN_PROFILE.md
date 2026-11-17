@@ -8,12 +8,12 @@
 ## 🏷️ Headline (заголовок под именем)
 
 ```
-Middle DevOps / MLOps Engineer · Proxmox · Docker · Prometheus/Grafana · AI Infra (Ollama/RAG)
+Middle DevOps / MLOps Engineer · Proxmox · Docker · Kubernetes (k3s) · Helm · Terraform · Ansible · Prometheus/Grafana · AI Infra
 ```
 
 **Альтернатива (если хочется мягче):**
 ```
-DevOps / MLOps Engineer · Production Home-Lab (18+ services) · Monitoring · Automation · AI Infrastructure
+DevOps / MLOps Engineer · Production Home-Lab (18+ services) · K8s · IaC · Monitoring · Automation · AI Infrastructure
 ```
 
 ---
@@ -25,9 +25,11 @@ DevOps / MLOps-инженер с опытом эксплуатации productio
 
 Спроектировал и сопровождаю home-lab платформу на Proxmox VE — 18+ сервисов в LXC/VM/Docker: мониторинг (Prometheus/Grafana), автоматизация (n8n, Bash/Python), CI/CD (GitLab/Runner), AI-инфраструктура (Ollama GPU inference, RAG, Dify, Qdrant, ComfyUI).
 
+Практический hands-on опыт с современным DevOps-стеком: Kubernetes (k3s), kubectl, Helm, Terraform, Ansible — развёрнуто и отработано на Proxmox (деплой приложений, Helm charts, IaC, роли/шаблоны, управление конфигурациями).
+
 Сильные стороны: диагностика инцидентов и эксплуатация в SLA, построение наблюдаемости, контейнеризация, автоматизация рутинных процессов, развёртывание и поддержка AI-сервисов.
 
-Открыт к предложениям Middle DevOps / MLOps Engineer (удалёнка/гибрид). Фокус: Linux, Docker, Proxmox, CI/CD, мониторинг, автоматизация, AI-инфраструктура.
+Открыт к предложениям Middle DevOps / MLOps Engineer (удалёнка/гибрид). Фокус: Linux, Docker, Proxmox, Kubernetes, Helm, Terraform, Ansible, CI/CD, мониторинг, автоматизация, AI-инфраструктура.
 ```
 
 **English version (для международных рекрутеров):**
@@ -36,9 +38,11 @@ DevOps / MLOps Engineer with hands-on experience operating production infrastruc
 
 Designed and operate a Proxmox VE home-lab platform — 18+ services in LXC/VM/Docker: monitoring (Prometheus/Grafana), automation (n8n, Bash/Python), CI/CD (GitLab/Runner), AI infrastructure (Ollama GPU inference, RAG, Dify, Qdrant, ComfyUI).
 
+Hands-on experience with modern DevOps stack: Kubernetes (k3s), kubectl, Helm, Terraform, Ansible — deployed and practiced on Proxmox (app deployments, Helm charts, IaC, roles/templates).
+
 Strengths: incident diagnostics and SLA-based support, observability, containerization, process automation, deployment and maintenance of AI services.
 
-Open to Middle DevOps / MLOps Engineer roles (remote/hybrid). Focus: Linux, Docker, Proxmox, CI/CD, monitoring, automation, AI infrastructure.
+Open to Middle DevOps / MLOps Engineer roles (remote/hybrid). Focus: Linux, Docker, Proxmox, Kubernetes, Helm, Terraform, Ansible, CI/CD, monitoring, automation, AI infrastructure.
 ```
 
 ---
@@ -80,12 +84,13 @@ Open to Middle DevOps / MLOps Engineer roles (remote/hybrid). Focus: Linux, Dock
 • Автоматизация: n8n (оркестрация workflow), Bash/Python скрипты, Telegram-боты (Job Hunter, VPN, уведомления)
 • CI/CD: GitLab + GitLab Runner, контейнеризация, автоматизация сборки/деплоя
 • AI/MLOps: Ollama (LLM inference, GPU/ROCm), RAG (SQLite + nomic-embed-text, 309 чанков Obsidian), Dify, Qdrant, ComfyUI (SDXL + IPAdapter FaceID)
+• Kubernetes/IaC (hands-on): k3s, kubectl, Helm (charts, деплой приложений/CronJob), Terraform (local + Kubernetes provider), Ansible (playbooks, roles, Jinja2) — развёрнуто на Proxmox
 • Практики: управление конфигурациями/секретами через .env, логирование, бэкапы, документирование изменений
 
 Репозиторий: https://github.com/sokstr/sokstr-mlops
 ```
 
-**Навыки (добавить):** Proxmox, Docker, Prometheus, Grafana, n8n, GitLab CI/CD, Ollama, RAG, Python, Bash, Nginx
+**Навыки (добавить):** Proxmox, Docker, Kubernetes, k3s, Helm, Terraform, Ansible, Prometheus, Grafana, n8n, GitLab CI/CD, Ollama, RAG, Python, Bash, Nginx
 
 ---
 
@@ -125,29 +130,35 @@ Open to Middle DevOps / MLOps Engineer roles (remote/hybrid). Focus: Linux, Dock
 ### Обязательные (добавить первыми, они влияют на поиск):
 1. Linux
 2. Docker
-3. Proxmox
-4. Prometheus
-5. Grafana
-6. Git
-7. CI/CD
-8. Python
-9. Bash
-10. Nginx
+3. Kubernetes
+4. Proxmox
+5. Terraform
+6. Ansible
+7. Prometheus
+8. Grafana
+9. Git
+10. CI/CD
 
 ### Дополнительные:
-11. n8n
-12. Ollama
-13. RAG (Retrieval-Augmented Generation)
-14. Qdrant
-15. Docker Compose
-16. GitLab CI
-17. Incident Management
-18. Troubleshooting
-19. Log Analysis
-20. VPN (WireGuard/AmneziaWG)
-21. Telegram Bot API
-22. SQLite
-23. LXC/VM
+11. Helm
+12. k3s
+13. kubectl
+14. Python
+15. Bash
+16. Nginx
+17. n8n
+18. GitLab CI
+19. Docker Compose
+20. Ollama
+21. RAG (Retrieval-Augmented Generation)
+22. Qdrant
+23. Incident Management
+24. Troubleshooting
+25. Log Analysis
+26. VPN (WireGuard/AmneziaWG)
+27. Telegram Bot API
+28. SQLite
+29. LXC/VM
 
 ---
 
