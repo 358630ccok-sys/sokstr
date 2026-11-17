@@ -27,6 +27,13 @@ pip install -r requirements.txt
 python job_hunter.py
 ```
 
+## Демо-режим (без сети и без отправки в Telegram)
+Позволяет безопасно проверить формат отчёта и логику сборки сообщения:
+```bash
+python3 job_bot/job_hunter.py --demo
+```
+Пример вывода: [`docs/screenshots/telegram/job_bot_demo.txt`](../docs/screenshots/telegram/job_bot_demo.txt)
+
 ## Запуск в Docker
 ```bash
 cd job_bot

@@ -6,18 +6,20 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List
 
-import feedparser
-import requests
-from aiogram import Bot
-from bs4 import BeautifulSoup
-from dotenv import load_dotenv
-
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
 logger = logging.getLogger("job_hunter")
 
 BASE_DIR = Path(__file__).resolve().parent
 RESUME_PATH = (BASE_DIR / ".." / "resume.md").resolve()
-load_dotenv(BASE_DIR / ".env")
+
+def _load_dotenv() -> None:
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(BASE_DIR / ".env")
+    except Exception as e:
+        logger.debug("dotenv not loaded: %s", e)
+
+_load_dotenv()
 
 
 def get_config() -> Dict[str, str]:
@@ -71,6 +73,7 @@ def fetch_hh_vacancies(hh_token: str) -> List[Dict[str, str]]:
     if hh_token:
         headers["Authorization"] = f"Bearer {hh_token}"
     try:
+        import requests
         resp = requests.get(url, headers=headers, timeout=15)
         resp.raise_for_status()
         items = resp.json().get("items", [])
@@ -92,6 +95,8 @@ def fetch_linkedin_jobs() -> List[Dict[str, str]]:
     url = "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=MLOps%20OR%20DevOps&location=Worldwide&start=0"
     headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"}
     try:
+        import requests
+        from bs4 import BeautifulSoup
         resp = requests.get(url, headers=headers, timeout=15)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
@@ -112,6 +117,7 @@ def fetch_linkedin_jobs() -> List[Dict[str, str]]:
 
     # RSS fallback attempt (may be unavailable)
     try:
+        import feedparser
         rss_url = "https://www.linkedin.com/jobs/search/?keywords=MLOps%20DevOps&f_TPR=r86400&position=1&pageNum=0&format=rss"
         feed = feedparser.parse(rss_url)
         jobs = []
@@ -152,6 +158,7 @@ def build_message(hh_jobs: List[Dict[str, str]], li_jobs: List[Dict[str, str]]) 
 
 
 async def send_telegram(token: str, chat_id: str, text: str) -> None:
+    from aiogram import Bot
     bot = Bot(token=token)
     try:
         await bot.send_message(chat_id=chat_id, text=text)
@@ -160,7 +167,27 @@ async def send_telegram(token: str, chat_id: str, text: str) -> None:
         await bot.session.close()
 
 
+def demo_message() -> str:
+    """Build a deterministic demo message (no network, no Telegram send)."""
+    hh_jobs = [
+        {"title": "DevOps Engineer (Remote)", "salary": "180 000-250 000 RUB gross", "url": "https://hh.ru/vacancy/123456"},
+        {"title": "MLOps Engineer", "salary": "от 220 000 RUB net", "url": "https://hh.ru/vacancy/234567"},
+        {"title": "Site Reliability Engineer", "salary": "Не указана", "url": "https://hh.ru/vacancy/345678"},
+    ]
+    li_jobs = [
+        {"title": "DevOps Engineer (Kubernetes)", "salary": "Не указана", "url": "https://www.linkedin.com/jobs/view/1111111111"},
+        {"title": "AI Infrastructure Engineer", "salary": "Не указана", "url": "https://www.linkedin.com/jobs/view/2222222222"},
+    ]
+    return build_message(hh_jobs, li_jobs)
+
+
 async def main() -> None:
+    import sys
+    if "--demo" in sys.argv:
+        logger.info("Demo mode: generating sample report without network/Telegram")
+        print(demo_message())
+        return
+
     cfg = get_config()
     read_resume_keywords()  # informs logs/search context
     hh_jobs = fetch_hh_vacancies(cfg["hh_token"])

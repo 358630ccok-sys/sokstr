@@ -151,7 +151,9 @@ docker run --rm --env-file .env job-bot
 - [docs/PORTFOLIO_INTERVIEW.md](docs/PORTFOLIO_INTERVIEW.md) — как презентовать опыт на интервью
 - [docs/COVER_LETTER_TEMPLATE.md](docs/COVER_LETTER_TEMPLATE.md) — шаблоны сопроводительных писем
 - [docs/runbooks/postgres-backup-restore.md](docs/runbooks/postgres-backup-restore.md) — PostgreSQL: бэкапы, роли/права, restore и проверка восстановления
+- [docs/runbooks/postgres-backup-restore-practice.md](docs/runbooks/postgres-backup-restore-practice.md) — практический сценарий backup → restore → проверка (safe demo)
 - [docs/runbooks/incident-service-outage-home-lab.md](docs/runbooks/incident-service-outage-home-lab.md) — разбор инцидента: диагностика, root cause, профилактика
+- [docs/screenshots/telegram/job_bot_demo.txt](docs/screenshots/telegram/job_bot_demo.txt) — пример вывода Job Hunter (`--demo`)
 - [docs/](docs/) — дополнительные материалы (LinkedIn, HH/отклики, планы, скриншоты)
 
 ---
