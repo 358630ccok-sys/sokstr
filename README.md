@@ -147,6 +147,11 @@ docker run --rm --env-file .env job-bot
 ---
 
 ## 👤 Контакты
+- **Город:** Воронеж, РФ (удалёнка / гибрид)
+- **Email:** 358630cok@mail.ru
+- **Телефон:** +7 (960) 107-19-92
+- **Telegram:** [@sokstr](https://t.me/sokstr)
+- **LinkedIn:** [Алексей Саковский](https://www.linkedin.com/in/%D0%B0%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9-%D1%81%D0%B0%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9-34224a185/)
+- **HH.ru:** [Резюме на HH](https://voronezh.hh.ru/resume/31ec25d8ff11556f6f0039ed1f376f70414174)
 - **GitHub:** https://github.com/358630ccok-sys/sokstr
-- **Резюме:** [resume.md](resume.md)
-- **Формат:** удалёнка / гибрид (РФ, remote-friendly)
+- **Подробное резюме:** [resume.md](resume.md)
