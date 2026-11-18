@@ -109,7 +109,7 @@ scp proxmox:/tmp/grafana.png docs/screenshots/grafana/
 
 - [ ] Создать папки `docs/screenshots/*`
 - [ ] Сделать 4 критичных скриншота (Grafana, Proxmox, n8n, Telegram)
-- [ ] Сделать 4 важных скриншота (Ollama, ComfyUI, Dify, Docker)
+- [ ] Сделать 4 важных скриншота (Ollama, Dify, Docker) — **ComfyUI готов:** `screenshots/ai/comfyui-pipeline.png`
 - [ ] Проверить отсутствие секретов на всех скриншотах
 - [ ] Добавить скриншоты в README.md
 - [ ] Добавить 1-2 скриншота в LinkedIn-посты

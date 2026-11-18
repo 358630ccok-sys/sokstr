@@ -37,7 +37,7 @@
 ┌──────────────────────────────── Proxmox VE (18+ services) ──────────────────────────┐
 │  LXC / VM / Docker                                                                  │
 │  • Ollama (LLM/GPU)      • Prometheus/Grafana (monitoring)   • n8n (automation)    │
-│  • Dify / Qdrant (RAG)   • GitLab/Runner (CI/CD)             • ComfyUI (AI media)  │
+│  • Dify / Qdrant (RAG)   • GitLab/Runner (CI/CD)             • ComfyUI (AI media, :8188)│
 │  • Nginx, VPN, Vaultwarden, Nextcloud, LiteLLM и др.                                │
 │                                                                                     │
 │  DevOps Lab (CT200, 192.168.10.240): k3s · kubectl · Helm · Terraform · Ansible    │
@@ -61,7 +61,7 @@
 | **CI/CD** | Git, GitLab, GitLab Runner |
 | **Мониторинг** | Prometheus, Grafana, healthchecks, анализ логов |
 | **Автоматизация** | Python, Bash, n8n, Telegram Bot API |
-| **AI / MLOps** | Ollama (ROCm/GPU), RAG (SQLite + nomic-embed-text), Dify, Qdrant, ComfyUI |
+| **AI / MLOps** | Ollama (ROCm/GPU), RAG (SQLite + nomic-embed-text), Dify, Qdrant, ComfyUI (ROCm, SDXL + IPAdapter FaceID, API `:8188`) |
 | **Сеть / Доступ** | Nginx (reverse proxy), VPN (WireGuard/AmneziaWG), основы DNS/маршрутизации |
 | **Практики** | `.env`/секреты вне git, бэкапы, логирование, документирование, воспроизводимость |
 
@@ -105,7 +105,7 @@ docker run --rm --env-file .env job-bot
 ### 4) AI/MLOps контур
 - **LLM inference:** Ollama (GPU/ROCm), эксплуатация локальных моделей
 - **RAG:** индексирование базы знаний (SQLite + embeddings), поиск контекста для задач/документации
-- **Платформы:** Dify, Qdrant, ComfyUI (генеративные пайплайны)
+- **Платформы:** Dify, Qdrant, ComfyUI (`comfyui-rocm`, SDXL + IPAdapter FaceID, API `/prompt|/queue|/history`)
 
 ---
 
@@ -116,7 +116,7 @@ docker run --rm --env-file .env job-bot
 | **Мониторинг** | ![Grafana](docs/screenshots/grafana/ai-monitoring.png) | Дашборд Grafana + метрики Prometheus: контроль состояния сервисов и AI-инфраструктуры, быстрая диагностика |
 | **Инфраструктура** | ![Proxmox](docs/screenshots/proxmox/cluster-overview.png) | Proxmox VE: управление LXC/VM и ресурсами платформы (18+ сервисов) в едином контуре |
 | **Автоматизация** | ![n8n](docs/screenshots/n8n/workflow-healthcheck.png) | n8n workflow/healthchecks: автоматизация проверок и интеграций, меньше ручных операций |
-| **AI/MLOps** | ![ComfyUI](docs/screenshots/ai/comfyui-pipeline.png) | ComfyUI-пайплайн: практическая AI-инфраструктура для генерации/обработки контента |
+| **AI/MLOps** | ![ComfyUI](docs/screenshots/ai/comfyui-pipeline.png) | ComfyUI-пайплайн (SDXL + IPAdapter FaceID, `comfyui-rocm`): генерация/обработка изображений через API (`http://192.168.10.100:8188`) |
 
 Дополнительно: `docs/screenshots/terminal/` (артефакты команд/состояния), другие каталоги — заготовки для новых скриншотов (`telegram`, `ci-cd`).
 
