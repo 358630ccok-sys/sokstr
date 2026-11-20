@@ -181,11 +181,39 @@ def demo_message() -> str:
     return build_message(hh_jobs, li_jobs)
 
 
+def _get_arg_value(flag: str) -> str:
+    import sys
+    if flag in sys.argv:
+        i = sys.argv.index(flag)
+        if i + 1 < len(sys.argv):
+            return sys.argv[i + 1]
+    # support --flag=value
+    prefix = flag + "="
+    for a in sys.argv[1:]:
+        if a.startswith(prefix):
+            return a[len(prefix):]
+    return ""
+
+
+def _save_message(path: str, text: str) -> None:
+    try:
+        out = Path(path).expanduser()
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(text, encoding="utf-8")
+        logger.info("Saved report to %s", out)
+    except Exception as e:
+        logger.error("Failed to save report to %s: %s", path, e)
+
+
 async def main() -> None:
     import sys
+    out_path = _get_arg_value("--out")
     if "--demo" in sys.argv:
         logger.info("Demo mode: generating sample report without network/Telegram")
-        print(demo_message())
+        msg = demo_message()
+        print(msg)
+        if out_path:
+            _save_message(out_path, msg)
         return
 
     cfg = get_config()
@@ -193,6 +221,9 @@ async def main() -> None:
     hh_jobs = fetch_hh_vacancies(cfg["hh_token"])
     li_jobs = fetch_linkedin_jobs()
     message = build_message(hh_jobs, li_jobs)
+
+    if out_path:
+        _save_message(out_path, message)
 
     if not cfg["tg_token"] or not cfg["chat_id"]:
         logger.error("Cannot send Telegram: missing TG_TOKEN/TELEGRAM_CHAT_ID. Message:\n%s", message)

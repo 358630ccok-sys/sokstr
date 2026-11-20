@@ -31,8 +31,17 @@ python job_hunter.py
 Позволяет безопасно проверить формат отчёта и логику сборки сообщения:
 ```bash
 python3 job_bot/job_hunter.py --demo
+
+# сохранить demo-отчёт в файл (воспроизводимый артефакт)
+python3 job_bot/job_hunter.py --demo --out docs/screenshots/telegram/job_bot_demo_YYYY-MM-DD.txt
 ```
-Пример вывода: [`docs/screenshots/telegram/job_bot_demo.txt`](../docs/screenshots/telegram/job_bot_demo.txt)
+Примеры вывода/артефактов:
+- [`docs/screenshots/telegram/job_bot_demo.txt`](../docs/screenshots/telegram/job_bot_demo.txt)
+- [`docs/screenshots/telegram/job_bot_demo_2026-11-20.txt`](../docs/screenshots/telegram/job_bot_demo_2026-11-20.txt)
+- [`docs/screenshots/telegram/job_bot_sample_report.md`](../docs/screenshots/telegram/job_bot_sample_report.md)
+- [`docs/screenshots/telegram/job_bot_anonymized_delivery_example.md`](../docs/screenshots/telegram/job_bot_anonymized_delivery_example.md) (обезличенный шаблон формата доставки)
+
+> Для обычного запуска также доступно сохранение сформированного отчёта: `python3 job_bot/job_hunter.py --out /tmp/job_bot_report.txt` (без публикации секретов).
 
 ## Запуск в Docker
 ```bash
